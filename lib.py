@@ -21,6 +21,8 @@ def readlog():
     i = 0
     for x in f:
         e = x.split(':')
+        print e
+        exit(0)
         name = e[3].strip()
         if 'Login' in x:
             s.log.append(x)

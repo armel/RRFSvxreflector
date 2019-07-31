@@ -12,7 +12,7 @@ import settings as s
 def readlog():    
     f = open('/tmp/svxreflector.log')
 
-    print f.tell()
+    print f
 
     i = 0
     for x in f:

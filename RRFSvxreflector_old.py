@@ -13,7 +13,7 @@ def readlog():
     f = open('/tmp/svxreflector.log')
 
     print count(f)
-    
+
     i = 0
     for x in f:
         e = x.split(':')
@@ -50,7 +50,7 @@ def main():
 
         print s.prov
 
-        time.sleep(5)
+        exit(0)
 
 if __name__ == '__main__':
     try:

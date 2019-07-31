@@ -24,7 +24,7 @@ def main():
 
         print s.prov
 
-        time.sleep(5)
+        exit(0)
 
 if __name__ == '__main__':
     try:

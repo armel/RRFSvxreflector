@@ -10,11 +10,6 @@ Learn more about RRF on https://f5nlg.wordpress.com
 import settings as s
 
 
-# Cette fonction renvoie le nom du link afin de trier la liste.
-def fctSort(e):
-    n = e.split(':')
-    return n[3].strip()
-
 # lecture du svxreflector.log
 def readlog():    
     f = open('/tmp/svxreflector.log')
@@ -26,6 +21,8 @@ def readlog():
             s.log.append(x)
 
     f.close()
+
+    print s.log
 
     lastName = ''
     name = ''

@@ -9,6 +9,8 @@ Learn more about RRF on https://f5nlg.wordpress.com
 
 import settings as s
 
+import time
+
 def readlog():
     with open('/tmp/svxreflector.log') as f:
         for line in f:
@@ -24,7 +26,7 @@ def main():
 
         print s.prov
 
-        exit(0)
+        time.sleep(5)
 
 if __name__ == '__main__':
     try:

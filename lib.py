@@ -26,9 +26,6 @@ def readlog():
             s.log.append(x)
 
     f.close()
-    s.log.reverse()
-
-    s.log.sort(key = fctSort)
 
     lastName = ''
     name = ''

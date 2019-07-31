@@ -8,20 +8,19 @@ Learn more about RRF on https://f5nlg.wordpress.com
 '''
 
 import settings as s
-import lib as l
 
-import requests
-import datetime
-import os
-import time
-import sys
-import getopt
+def readlog():
+    with open('/tmp/svxreflector.log') as f:
+        for line in f:
+            if 'Login' in line:
+                element = line.split(':')
+                s.prov[element[3].strip()] = element[4][15:]
 
 def main():
     
     # Boucle principale
     while(True):
-        l.readlog()
+        readlog()
 
         print s.prov
 

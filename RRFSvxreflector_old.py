@@ -46,6 +46,7 @@ def main():
         readlog()
 
         print s.prov
+        print '-----'
 
         time.sleep(5)
 

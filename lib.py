@@ -21,8 +21,6 @@ def readlog():
     i = 0
     for x in f:
         e = x.split(':')
-        print e
-        exit(0)
         name = e[3].strip()
         if 'Login' in x:
             s.log.append(x)
@@ -32,6 +30,11 @@ def readlog():
                 s.logged[name] = 0
     f.close()
     s.log.reverse()
+
+    print s.log
+
+    exit(0)
+
     s.log.sort(key = fctSort)
 
     lastName = ''

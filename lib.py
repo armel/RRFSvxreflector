@@ -46,8 +46,6 @@ def readlog():
 def readlog():
     with open('/tmp/svxreflector.log') as f:
         for line in f:
-            print line
-            print '----'
             if 'Login' in line:
                 print line
                 element = line.split(':')

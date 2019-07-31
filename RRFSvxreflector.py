@@ -21,10 +21,6 @@ def main():
     
     # Boucle principale
     while(True):
-        now = datetime.datetime.now()
-        plage_stop = now.strftime('%H:%M:%S')
-        plage_start = (now - datetime.timedelta(minutes = s.plage)).strftime('%H:%M:%S')
-
         l.readlog()
 
         print s.prov

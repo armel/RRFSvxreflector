@@ -24,16 +24,11 @@ def readlog():
         name = e[3].strip()
         if 'Login' in x:
             s.log.append(x)
-            s.logged[name] = 1
-        elif 'disconnected' in x:
-            if 'Client' not in name:
-                s.logged[name] = 0
+
     f.close()
     s.log.reverse()
 
     print s.log
-
-    exit(0)
 
     s.log.sort(key = fctSort)
 

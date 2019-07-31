@@ -15,14 +15,6 @@ def fctSort(e):
     n = e.split(':')
     return n[3].strip()
 
-# readbip lit le fichier BIP.txt pour alimentre le dictionnary bip
-def readbip():
-    f = open('/root/BIP.txt','r')
-    for x in f:
-      e = x.split(":")
-      s.bip[e[0]] = e[1]
-    f.close()
-
 # lecture du svxreflector.log
 def readlog():    
     f = open('/tmp/svxreflector.log')
@@ -50,10 +42,6 @@ def readlog():
             s.prov[name] = e[4][15:]
             lastName=name
             i += 1
-    readbip()
-    for x in s.bip:
-        if x not in s.prov:
-            s.prov[x]='---.---.---.---'
     i = 0
     for key in sorted(s.prov.keys()) :
         s.links.append(key)

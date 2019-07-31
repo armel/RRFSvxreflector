@@ -47,7 +47,6 @@ def readlog():
     with open('/tmp/svxreflector.log') as f:
         for line in f:
             if 'Login' in line:
-                print line
                 element = line.split(':')
                 s.prov[element[3].strip()] = element[4][15:]
 

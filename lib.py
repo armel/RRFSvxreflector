@@ -22,14 +22,15 @@ def readlog():
 
     f.close()
 
-    print s.log
-
     lastName = ''
     name = ''
     i = 0
     for x in s.log:
         e = x.split(':')
         name=e[3].strip()
+
+        print name
+        
         if name != lastName:
             s.prov[name] = e[4][15:]
             lastName=name

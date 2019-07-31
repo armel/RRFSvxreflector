@@ -11,6 +11,7 @@ import settings as s
 
 
 # lecture du svxreflector.log
+'''
 def readlog():    
     f = open('/tmp/svxreflector.log')
     i = 0
@@ -40,3 +41,15 @@ def readlog():
         s.links.append(key)
         s.ips.append(s.prov[key])
         i += 1
+'''
+
+def readlog():    
+    f = open('/tmp/svxreflector.log')
+    i = 0
+    for x in f:
+        e = x.split(':')
+        name = e[3].strip()
+        if 'Login' in x:
+            s.prov[name] = e[4][15:]
+
+    f.close()

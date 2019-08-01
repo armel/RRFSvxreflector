@@ -19,6 +19,11 @@ prov=dict()
 logged=dict()
 memeIP=list()
 
+def fctSort(e):
+    """ Cette fonction renvoie le nom du link afin de trier la liste. """
+    n=e.split(":")
+    return n[3].strip()
+    
 def readlog():
     df=open("/tmp/svxreflector.log")
     i=0

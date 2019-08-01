@@ -70,14 +70,10 @@ def readlog():
 
 def main():
     
-    # Boucle principale
-    while(True):
-        readlog()
+    readlog()
 
-        print prov
-        print '-----'
-        
-        time.sleep(5)
+    for l in links:
+        print l        
 
 if __name__ == '__main__':
     try:

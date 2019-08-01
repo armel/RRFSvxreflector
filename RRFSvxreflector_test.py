@@ -16,7 +16,6 @@ ips=list()
 log=list()
 bip=dict()
 prov=dict()
-logged=dict()
 memeIP=list()
 
 def fctSort(e):
@@ -40,13 +39,15 @@ def readlog():
         name = e[3].strip()
         if 'Login' in x:
             log.append(x)
-            logged[name]=1
-        elif 'disconnected' in x:
-            if 'Client' not in name:
-                logged[name]=0
+
     f.close()
     log.reverse()
+
+    print log
+
     log.sort(key=fctSort)
+
+    print log
     
     lastName=""
     name=""

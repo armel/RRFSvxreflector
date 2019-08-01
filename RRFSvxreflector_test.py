@@ -23,9 +23,9 @@ def fctSort(e):
     """ Cette fonction renvoie le nom du link afin de trier la liste. """
     n=e.split(":")
     return n[3].strip()
-    
+
 def readlog():
-    df=open("/tmp/svxreflector.log")
+    f=open("/tmp/svxreflector.log")
     i=0
     for x in f:
         e=x.split(":")

@@ -8,27 +8,25 @@ Learn more about RRF on https://f5nlg.wordpress.com
 '''
 
 import settings as s
-import lib as l
 
-import requests
-import datetime
-import os
 import time
-import sys
-import getopt
+
+def readlog():
+    with open('/tmp/svxreflector.log') as f:
+        for line in f:
+            if 'Login' in line:
+                element = line.split(':')
+                s.prov[element[3].strip()] = element[4][15:]
 
 def main():
     
     # Boucle principale
     while(True):
-        now = datetime.datetime.now()
-        plage_stop = now.strftime('%H:%M:%S')
-        plage_start = (now - datetime.timedelta(minutes = s.plage)).strftime('%H:%M:%S')
-
-        l.readlog()
+        readlog()
 
         print s.prov
-
+        print '-----'
+        
         time.sleep(5)
 
 if __name__ == '__main__':

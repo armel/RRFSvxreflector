@@ -8,12 +8,11 @@ Learn more about RRF on https://f5nlg.wordpress.com
 '''
 
 import settings as s
+import time
 
-
-# lecture du svxreflector.log
-'''
 def readlog():    
     f = open('/tmp/svxreflector.log')
+
     i = 0
     for x in f:
         e = x.split(':')
@@ -30,8 +29,6 @@ def readlog():
         e = x.split(':')
         name=e[3].strip()
 
-        print name, e[4][15:]
-
         if name != lastName:
             s.prov[name] = e[4][15:]
             lastName=name
@@ -41,12 +38,20 @@ def readlog():
         s.links.append(key)
         s.ips.append(s.prov[key])
         i += 1
-'''
 
-def readlog():
-    with open('/tmp/svxreflector.log') as f:
-        for line in f:
-            if 'Login' in line:
-                element = line.split(':')
-                s.prov[element[3].strip()] = element[4][15:]
+def main():
+    
+    # Boucle principale
+    while(True):
+        readlog()
 
+        print s.prov
+        print '-----'
+
+        time.sleep(5)
+
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt:
+        pass

@@ -24,6 +24,14 @@ def fctSort(e):
     n=e.split(":")
     return n[3].strip()
 
+def readbip():
+    """ readbip lit le fichier BIP.txt pour alimentre le dictionnary bip"""
+    f=open("BIP.txt",'r')
+    for x in f:
+      e=x.split(":")
+      bip[e[0]]=e[1]
+    f.close()
+    
 def readlog():
     f=open("/tmp/svxreflector.log")
     i=0

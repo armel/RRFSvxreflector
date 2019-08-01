@@ -42,12 +42,7 @@ def readlog():
 
     f.close()
     log.reverse()
-
-    print log
-
     log.sort(key=fctSort)
-
-    print log
     
     lastName=""
     name=""
@@ -74,7 +69,10 @@ def main():
     readlog()
 
     for l in links:
-        print l        
+        print l
+
+    for i in ips:
+        print i     
 
 if __name__ == '__main__':
     try:

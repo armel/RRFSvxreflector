@@ -38,7 +38,7 @@ def readlog():
                 element = line.split(':')
                 prov[element[3].strip()] = element[4][15:]
 
-    with open('/tmp/BIP.txt') as f:
+    with open('/root/BIP.txt') as f:
         for line in f:
             element = line.split(':')
             if element[0] not in prov:

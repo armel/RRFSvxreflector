@@ -32,37 +32,21 @@ def readbip():
     f.close()
 
 def readlog():
-    f=open("/tmp/svxreflector.log")
-    i=0
-    for x in f:
-        e=x.split(":")
-        name = e[3].strip()
-        if 'Login' in x:
-            log.append(x)
+    with open('/tmp/svxreflector.log') as f:
+        for line in f:
+            if 'Login' in line:
+                element = line.split(':')
+                prov[element[3].strip()] = element[4][15:]
 
-    f.close()
-    log.reverse()
-    log.sort(key=fctSort)
-    
-    lastName=""
-    name=""
-    i=0
-    for x in log:
-        e=x.split(":")
-        name=e[3].strip()
-        if name != lastName:
-            prov[name]=e[4][15:]
-            lastName=name
-            i+=1
-    readbip()
-    for x in bip:
-        if x not in prov:
-            prov[x]="---.---.---.---"
-    i=0
-    for key in sorted(prov.keys()) :
+    with open('/tmp/BIP.txt') as f:
+        for line in f:
+            element = line.split(':')
+            if element[0] not in prov:
+                prov[x]='---.---.---.---'
+
+    for key in sorted(prov.keys()):
         links.append(key)
         ips.append(prov[key])
-        i+=1
 
 def main():
     
